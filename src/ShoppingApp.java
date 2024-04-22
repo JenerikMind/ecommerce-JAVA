@@ -16,7 +16,7 @@ public class ShoppingApp {
         // create a customer object
         Customer customer = new Customer(1, "John");
 
-        // set the inital screen to the main menu
+        // set the initial screen to the main menu
         currentScreen = new MainMenu();
         
         // while the customer is shopping
