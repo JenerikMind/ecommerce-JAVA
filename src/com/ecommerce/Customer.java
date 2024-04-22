@@ -40,7 +40,6 @@ public class Customer {
 		for (Product product : shoppingCart) {
 			total += product.price;
 		}
-		
 		return total;
 	}
 

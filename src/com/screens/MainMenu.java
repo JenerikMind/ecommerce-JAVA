@@ -2,6 +2,10 @@ package com.screens;
 
 import java.util.Scanner;
 
+/**
+ * The root of the application. This screen is displayed first when the
+ * application is started.
+ */
 public class MainMenu extends Screen {
 	Scanner scanner = new Scanner(System.in);
 
@@ -11,6 +15,7 @@ public class MainMenu extends Screen {
         System.out.println("1. Shop Products");
         System.out.println("2. Shopping Cart");
         System.out.println("3. Order Summary");
+        System.out.println("4. Exit");
 
         int option = scanner.nextInt();
         System.out.println("You selected option: " + option);

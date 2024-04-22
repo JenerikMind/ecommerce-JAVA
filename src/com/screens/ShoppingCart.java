@@ -2,13 +2,11 @@ package com.screens;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import com.ecommerce.Customer;
 import com.ecommerce.Product;
-import com.screens.Screen.ScreenType;
 
 public class ShoppingCart extends Screen {
-	Customer customer;
+    Customer customer;
     ArrayList<Product> products;
 
     public ShoppingCart(Customer customer) {
@@ -17,7 +15,6 @@ public class ShoppingCart extends Screen {
     }
 
     public ScreenType display() {
-
         // display items in the shopping cart
         // ask user if they want to remove an item
         // ask user if they want to checkout
@@ -36,23 +33,25 @@ public class ShoppingCart extends Screen {
         // if ready to checkout, move to order summary
         System.out.println("Would you like to checkout? (y/n)");
         response = scanner.next();
-        scanner.close();
+
         if (response.equals("y")) {
             return ScreenType.ORDER_SUMMARY;
-        }else{
+        } else {
             return ScreenType.SHOPPING_CART;
         }
     }
 
+    // display items in the shopping cart via index + 1
     private void displayItemsInCart(Customer customer) {
         System.out.println("Items in your shopping cart: ");
-        for (Product p : customer.GetShoppingCartItems()) {
-            System.out.println(p.GetProductId() + " - " + p.GetName() + " - " + p.GetPrice());
+        ArrayList<Product> products = customer.GetShoppingCartItems();
+        for (Product p : products) {
+            System.out.println(products.indexOf(p) + 1 + " - " + p.GetName() + " - " + p.GetPrice());
         }
     }
 
+    // remove an item from the shopping cart
     private void removeItemFromCart() {
-
         System.out.println("Please enter the product ID you would like to remove: ");
         Scanner scanner = new Scanner(System.in);
         int productId = scanner.nextInt();
@@ -64,7 +63,5 @@ public class ShoppingCart extends Screen {
         if (response.equals("y")) {
             removeItemFromCart();
         }
-
-        scanner.close();
     }
 }

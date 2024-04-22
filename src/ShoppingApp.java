@@ -1,19 +1,27 @@
 import java.util.ArrayList;
 
-import com.ecommerce.Customer;
-import com.ecommerce.Product;
+import com.ecommerce.*;
 import com.screens.*;
 
+/**
+ * ShoppingApp class
+ * handles the UI and the shopping process
+ */
 public class ShoppingApp {
     ArrayList<Product> products = new ArrayList<Product>();
     boolean isShopping = true;
     Screen currentScreen;
 
     public void UI() {
+        // create a customer object
         Customer customer = new Customer(1, "John");
+
+        // set the inital screen to the main menu
         currentScreen = new MainMenu();
         
+        // while the customer is shopping
         while(isShopping){
+            // display the current screen and switch to the next screen as dictated by the user
             switch(currentScreen.display()){
                 case MAIN_MENU:
                     currentScreen = new MainMenu();
